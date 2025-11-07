@@ -1,0 +1,30 @@
+name: Version Check
+on: [push]
+jobs:
+  check-versions:
+  runs-on: ubuntu-lastest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-versions: '20'
+
+    - name: Check Node.js version
+      run: node --version
+
+    - name: Check npm version
+      run: npm --version
+
+    - name: Check Git version
+      run: git --version
+
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Check Python version
+      run: python --version
+    
